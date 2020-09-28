@@ -17,6 +17,14 @@ docker run \
   -v /etc/docker/my_nginx/nginx.conf:/etc/nginx/nginx.conf:ro \
   -v /etc/docker/my_nginx/conf.d:/etc/nginx/conf.d \
   nginx
+# create nginx with ssl certs
+docker run --name my_nginx -d -p 80:80 -p 443:443 \
+-v /etc/docker/my_nginx/conf.d/:/etc/nginx/conf.d \
+-v /etc/letsencrypt/archive/example.org/fullchain.pem:/etc/letsencrypt/live/example.org/fullchain.pem:ro \
+-v /etc/letsencrypt/archive/example.org/privkey.pem:/etc/letsencrypt/live/example.org/privkey.pem:ro \
+-v /etc/letsencrypt/archive/example.org/chain.pem:/etc/letsencrypt/live/example.org/chain.pem:ro \
+nginx
+  
 
 # enter into container
 docker container exec -it my_nginx /bin/bash
