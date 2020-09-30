@@ -1,6 +1,6 @@
 # https://hub.docker.com/_/mysql
 
-
+# docker + mysql 占用内存比较大， 512M的机器可能会扛不住
 
 docker run --name mysql-test -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql
 
