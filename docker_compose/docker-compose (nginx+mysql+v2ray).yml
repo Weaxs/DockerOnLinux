@@ -11,7 +11,7 @@ services:
             - ./nginx/conf.d:/etc/nginx/conf.d
             - ./nginx/certs:/etc/nginx/certs
         network_mode: host
-        container_name: nginx_usa
+        container_name: nginx
 
     mysql: 
         image: mysql:latest
